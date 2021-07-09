@@ -1,36 +1,31 @@
 FROM archlinux:latest
 
 RUN pacman -Sy
-RUN pacman -S --noconfirm vim
 RUN pacman -S --noconfirm \
+        base-devel \
         git \
         go \
-        python-setuptools
-
-RUN pacman -S --noconfirm \
         libnetfilter_queue \
         libpcap \
+        net-tools \
         python-grpcio \
         python-protobuf \
         python-pyinotify \
+        python-pyqt5 \
+        python-setuptools \
         python-slugify \
-        python-pyqt5
-
-RUN pacman -S --noconfirm \
-        sudo \
-        base-devel \
-        x11vnc \
-        supervisor \
-        net-tools \
-        xorg-xauth \
-        xorg-server-xvfb \
-        xfce4 \
-        xterm \
-        xorg-server \
+        qt5-tools \
         screen \
-        qt5-tools
+        sudo \
+        supervisor \
+        tigervnc \
+        vim \
+        xfce4 \
+        xorg-server \
+        xorg-server-xvfb \
+        xorg-xauth \
+        xterm
 
-RUN pacman -S --noconfirm tigervnc
 
 RUN groupadd sudo
 RUN useradd -m --shell /bin/bash -G sudo docker
